@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class CardAnimation : MonoBehaviour
 {
-    [SerializeField] private float duration = 0.4f;
+    private const float HideOffset = 0.01f;
 
-    private TweenerCore<Vector3, Vector3, VectorOptions> _animation;
+    [SerializeField] private float duration = 0.4f;
+    [SerializeField] private float up;
+    [SerializeField] private float left;
+    [SerializeField] private float right;
+
+    private Sequence _animation;
 
     public void Show()
     {
@@ -15,19 +20,24 @@ public class CardAnimation : MonoBehaviour
 
         gameObject.SetActive(true);
         transform.localScale = Vector3.zero;
-        _animation = transform.DOScale(Vector3.one, duration);
+        transform.localPosition = Vector3.zero;
+        _animation = DOTween.Sequence()
+            .Insert(0, transform.DOScale(Vector3.one, duration));
     }
 
     public void Hide()
     {
         TryStopAnimation();
 
-        _animation = transform.DOScale(Vector3.zero, duration);
+        _animation = DOTween.Sequence()
+            .Insert(0, transform.DOScale(Vector3.zero, duration))
+            .Insert(0, transform.DOMove(new Vector3(Random.Range(left, right), up, HideOffset), duration));
         _animation.onComplete += () => gameObject.SetActive(false);
     }
 
     private void TryStopAnimation()
     {
-        if (_animation != null && _animation.IsPlaying()) _animation.Kill();
+        if (_animation != null && _animation.IsPlaying())
+            _animation.Kill();
     }
 }
