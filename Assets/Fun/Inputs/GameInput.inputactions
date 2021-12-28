@@ -1,0 +1,54 @@
+{
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "MainGameplay",
+            "id": "e3148d85-ebba-486b-9503-bea5e68f8fe9",
+            "actions": [
+                {
+                    "name": "Sword",
+                    "type": "Button",
+                    "id": "6d9e2eb7-1258-4f9a-baf0-633b32c9c533",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Shield",
+                    "type": "Button",
+                    "id": "3de959fc-e927-4ff2-b565-c843d5e8e917",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cd458cea-5026-48da-990b-4123b7e05947",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shield",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dc242c8b-e4cc-4a4a-876a-fbe5df45df94",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sword",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
